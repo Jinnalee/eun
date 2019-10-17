@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List</title>
+
+    <style>
+      ol {counter-reset: list;}
+      ol.a > li {list-style: none;}
+      ol.a > li:before {
+        content: counter(list) ") ";
+        counter-increment: list;}
+
+      ol.ㄱ > li {background-color: skyblue}
+      ol.ㄴ > li {list-style-type: lower-alpha; color:blue;}
+
+    </style>
+  </head>
+
+
+  <body>
+    <h2> LIST </h2>
+  <ol>
+    <li>abcd</li>
+    <li>efgh</li>
+    <li>ijklim</li>
+  </ol>
+      <ol class="a">
+        <li>가나다</li>
+        <li>라마바사</li>
+        <li>아자차카타파하</li>
+      </ol>
+
+  <ol class="ㄱ">
+  <li>1. 가나다</li>
+
+  <ol class="ㄴ">
+  <li> a. ㄱㄴ</li>
+  <li> b. ㅂㅈ</li>
+  <li> c. ㅌㅍㄷ</li> </ol>
+
+  <li>2. 개내대</li>
+  <ol class="ㄴ">
+    <li>a. sawf</li>
+    <li>b. afeg</li> </ol>
+  </ol>
+
+
+  </body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 30강. 객체</title>
+  </head>
+  <body>
+    <h2> Object 객체 </h2>
+    - 코드 정리 목적 <br>
+    함수가 많아지고 함수와 연관된 변수가 많아지면 마찬가지로 복잡. <br>
+    서로 연관된 함수와 연관된 변수를 같은 이름으로 그룹핑하기 위한 도구 <br>
+    우선, <a href="복습 2.html" target="_blank"> nightNdayHandler</a>를 함수로 모두 정리해보자.
+    <script>
+      //함수1 - 링크
+      function LinkSetC(color){
+        var a = document.querySelectorAll('a');
+        var i = 0;
+        while(i<a.length){
+          a[i].style.color = color;
+          i = i + 1
+        }
+      }
+      //함수2 - 바디컬러
+      function BodySetC(color){
+        document.querySelector('body').style.color = color
+      }
+      //함수3 - 바디 배경컬러
+      function BodySetbgC(color){
+        document.querySelector('body').style.backgroundColor = color
+      }
+      //함수4 - 야간모드 버튼
+      function nightNdayHandler(self){
+        var x = document.querySelector('body');
+        if(self.value === 'night'){
+          BodySetC('orange') ;
+          BodySetbgC('darkgreen') ;
+          self.value = 'day';
+          LinkSetC('skyblue')
+        }
+
+        else{
+          BodySetC('navy');
+          BodySetbgC('pink');
+          self.value = 'night';
+          LinkSetC('grey')
+        }
+      }
+
+    </script>
+
+
+    <br>
+    <input type="button" value ="night" onclick="
+    nightNdayHandler(this)">
+
+    <p>
+    이렇게 많은 함수와 변수를 서로 연관된 것들끼리<br>
+    그룹핑해서 정리정돈하기 위해 '객체'를 사용.<br>
+    ex. document.querySelector : document라는 객체에 속해있는 함수 querySelector <br>
+    -> 객체에 속해있는 함수는 함수라고 부르지 않고, method라고 한다.</p>
+
+
+배열 : 순서대로 정보 저장, literal은 []  <br>
+객체 : 순서와 상관없이 저장하는 이름 있는 정리 상자, literal은 {}  <br>
+ <br>
+var coworkers={"warrior":"changmin"} <br>
+{key값 : value값} // 내부에 들어가는 'warrior:changmin' 이 한덩어리를 property (속성값)이라고한다.  <br>
+
+
+<h2> Create 객체 생성법 </h2>
+var skewered = {  <br>
+  "seafood" = "mackerel boiled down in miso paste",  <br>
+  "meat" = "pork leg"  <br>
+}  <br>
+document.write('seafood : '+skewered.seafood) <br> ->
+<script>
+var skewered = {
+  "Seafood" : "Mackerel boiled down in miso paste",
+  "Meat" : "Pork leg"
+};
+document.write('seafood : '+skewered.seafood+'<br>');
+
+
+</script>
+: 여기서 .은 object access operator라고 함. 즉, 객체에 접근하는 연산자이다. <br>
+ <br>
+객체 skewered에 정보 추가하고 싶으면,   <br>
+skewered.savoury = "Sticky rice with Fermented fish"  <br>
+skewered["Bon Appetit Set"] = "Braised Silver Pomfret with ginger" <br>
+: 이름에는 공백을 넣을 수 없지만, . 대신 [""]를 사용하면 가능.   <br>
+<script>
+skewered.Savoury = "Sticky rice with Fermented fish"
+skewered["Bon Appetit Set"] = "Braised Silver Pomfret with ginger";
+document.write('-> Bon Appetit Set : '+skewered["Bon Appetit Set"]+'<br>');
+
+</script>
+<h2> Loop & Object - Iterate </h2>
+- 생성된 객체의 모든 데이터를 가져올때 (모든 a태그를 가져오기 위해 while을 사용했던 것 처럼)   <br>
+ Ex.    <br>
+  for(<span style = "color:purple; font-weight:bold"> var</span> key <span style = "color:purple; font-weight:bold"> in</span> skewered){}
+  <p style ="margin-bottom:20px">
+    -> skewered라는 변수가 가르키는 객체에 있는 key값들을 가져오는 반복문.   <br>
+    여기서 키값들은 'seafood','meat'와 같은 것. 가져오고 싶은 정보에 도달할 수 있는 열쇠.   <br>
+    (*배열에서는 순서대로 정리되어 있기 때문에 key 대신 'index'라는 표현을 사용.)    <br>
+    즉, for는 객체 skewered에 있는 key를 하나하나 꺼내서 {}내의 코드를 실행시키는 명령   <br>
+    다시말하면, 객체 내의 데이터 수만큼 {}코드를 실행하는 데, key값 하나하나를 변수값으로 설정.   </p>
+    <ul>
+      <script>
+      for(var key in skewered){
+        document.write('<li>'+key+' : '+skewered[key]+'</li>');
+      }
+
+    </script> </ul>
+    document.write(key + skewered[key]) <br>
+    -> key : 객체 내 key값  <br>
+    -> 객체.key : key값에 해당하는 데이터(value)  <br>
+
+<h2> Property & Method </h2>
+ 객체에는 함수/배열/숫자/문자 모두 담을 수 있다. <br>
+ 32강 부터 (복습 3 참조)
+<script>
+  skewered.showAll = function(){
+    for(var k in this){
+      document.write('<br>'+k+' : '+this[k])}
+    }
+  // 아래와 모두 같은 표현; skewered라는 객체에 showAll이라는 Method 추가
+  var showAll = function(){}
+  function showAll(){}
+
+  //showAll이라는 함수안에서 함수가 소속된 객체를 가르키는 매체 ; this
+  //skewered라는 변수의 이름이 바뀌어도, 영향을 받지 않게된다.
+
+skewered.showAll();
+</script>
+
+<p style = "margin-top:20px">
+-> 이처럼, 객체에 소속된 변수의 값으로 함수를 지정할 수 있다.
+<ul>
+  <li> 객체에 소속된 변수를 Property  </li>
+  <li> 객체에 소속된 함수를 Method </li> </ul>
+</p>
+
+<a href = "복습 3.html" target="_blank"> 예제</a>) 객체에 함수를 넣어 nightNdayHandler만들기
+
+
+
+
+
+  </body>
+</html>

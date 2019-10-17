@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 22강. 배열과 반복문</title>
+  </head>
+
+  <body>
+    <h1>Loop & Array </h1>
+    var 동료 = ["일","이","삼"] <br>
+    var i = 0; <br>
+    while (i< 동료.length) {
+      document.write('태그<strong style = "color:green">'+동료[i]+'</strong>/태그'); <br>
+      i = i + 1
+    }
+
+    <ul>
+    <script>
+      var 동료 = ["일","이","삼"]
+      동료.push("팔백사십사")
+
+      var i = 0;
+      while (i< 동료.length) {
+        document.write('<li><a href ="https://en.wikipedia.org/wiki/'+동료[i]+'">'+동료[i]+'</a></li>');
+        i = i + 1
+      }
+      document.write(동료[동료.length-1])
+    </script>
+    </ul>
+
+    <h2> < Consol에도 사용 가능 > </h2>
+    1. document.querySelector('a') <br>
+    : querySelector라는 method/함수/명령은 'a'태그에 해당되는 첫번째 것만 가져옴 <br>
+    그러므로 'a'태그 전체는, (how to get multiple elements by CSS selector) <br>
+ <br>
+    2. document.querySelectorAll('.class1.class2') <br>
+    : console에 해당 함수를 입력하면, [a,a,a .. ]의 꼴, 배열과 같은 형태(정확히는 Nodelist)가 나옴. <br>
+    즉, a 들의 리스트가 나온다. 옷(a)들이 들어있는 서랍(a들의 리스트)  <br>
+    <p>
+      <ul>
+    이걸 alist라는 변수로 두고,    var alist = document.querySelectorAll('a'); <br>
+    <li> console.log(alist[0]) <br>
+    -> 괄호안의 결과가 콘솔 창에 출력되면서, 첫번째 링크가 뜬다. </li>
+
+    <li> alist.length : a(태그)의 개수 </li> </ul>
+
+
+
+  </body>
+</html>

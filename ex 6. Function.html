@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 24강. Function </title>
+    <style>
+       .lit{font-size: 1.5rem; font-weight:bold}
+    </style>
+
+  </head>
+
+  <body>
+    <h1>< Function ></h1>
+    <ol>
+    <li  class="lit">  함수 Basic 문법 </li>
+    <ul>
+      <script>
+      function list(self) {
+        var i = 0
+        while(i<2){
+          document.write('<li>2-1</li>');
+          document.write('<li>2-2</li>');
+          i = i + 1  }
+        }
+
+      document.write('hello');
+      list(this);
+      document.write(2+5)
+      list();
+      document.write('hello world')
+      </script>
+    </ul><br>
+
+    <li  class="lit">  Parameter 매개변수 & Argument 인자 : 입력 </li>
+    <p style="margin-bottom:20px"> script <br>
+    function 더하기(wen,ollen){     <br>
+      document.write(wen+ollen+'< br>'+)}     <br>
+    더하기(5,8) <br>
+    /script      </p>
+    <ul>
+    <li>  function이름은 더하기  </li>
+    <li>  함수로 전달하는 5와 8이라는 값은 인자  </li>
+    <li>  해당 값을 함수로 매개해주는 변수(wen과 ollen)를 매개변수라고 한다.  </li>
+    </ul>
+
+     <br>
+    <script>
+      function dohagi(wen,ollen){
+        document.write(wen+ollen+'<br>')
+      }
+      dohagi(5,8); // 이렇게 하니까 웹페이지 상에는 안뜨넹
+      dohagi(14,10);
+
+    </script> <br>
+
+    <li  class="lit">  Return : 출력 </li>
+    * 표현 <br>
+    ex. 1 + 1 = 2 : '1 + 1'은 숫자 2에 대한 표현식 <br>
+    ex. 1 === 1 : true라는 값에 대한 표현식 <br>
+
+    * document.write()
+    <ul>
+    <li> string + string = string </li>
+    <li> number + number = number </li>
+    <li> string + number = String </li>
+    <li> '< div>'+ left+right +'</ div>' : string 자료형이므로, 11이 아닌 38로 나옴 </li>
+    <li> '< div>'+ (left+right) +'</ div>' : 괄호한 부분 먼저 계산해서 11 값이 발생하고, string과의 덧셈 </li>
+    </ul>
+
+    <script>
+    function 더하기(좌,우){
+      document.write(좌+우+'<br>');
+    }
+    더하기(3,8);
+    function sumColorRed(left,right){
+      document.write('<div style="color:red; margin-bottom:20px">'+left+right+'</div>')
+    }
+    sumColorRed(3,8)
+    </script>
+
+    '좌+우'라는 함수값의 폰트 색을 변경하거나, 폰트 크기를 변경하고 싶을 때 마다 <br>
+    새로운 함수를 만들 필요없이, 기존의 함수로 여러 가지의 활용을 만들 수 있는 방법은 무엇인가? <br>
+    -> Return
+
+  <p>
+    function practice(a,b){ <br>
+      return a*b <br>
+    } <br>
+    var x = practice(3,4); <br>
+    var y = practice(5,6); <br>
+    document.write('< div style = "font-size:2rem">'+(x*y)+'</ div>'); <br>
+    document.write('< div style = "color:red">'+practice(12,12)+'</ div>'); </p>
+
+    <script>
+    function practice(a,b){
+      return a*b
+    }
+    var x = practice(3,4);
+    var y = practice(5,6);
+    document.write('<div style = "font-size:2rem">'+(x*y)+'</div>');
+    document.write('<div style = "color:red">'+practice(12,12)+'</div>');
+
+    </script>
+    <p style = "margin-bottom:30px"> : 즉, 계산하는 기능만을 practice라는 함수가 구현함으로써, 원자화된 기능을 다양한 맥락에서 활용할 수 있게 된다.
+  </p>
+
+    <li  class="lit">  함수 활용 </li>
+    <a href="복습 2.html" target="_blank" style = "font-weight:bold"> 예제)</a> night/day 버튼을 함수를 이용해서 Refactoring 작업
+
+        <script>
+          function nightNdayHandler(slf){
+            var x = document.querySelector('body').style
+            if(slf.value === 'night'){
+              x.color = 'navy';
+              x.backgroundColor = 'pink';
+              slf.value = 'day';
+
+              LinkC('grey')
+            }
+            else{
+              x.backgroundColor = 'powderblue';
+              x.color = 'orange';
+              slf.value = 'night';
+
+              LinkC('purple')
+            }
+          }
+
+          function LinkC(color){
+            var a = document.querySelectorAll('a');
+            var i = 0;
+            while(i < a.length){
+              a[i].style.color = color;
+              i = i + 1
+            }
+          }
+        </script>
+
+        <input type="button" value="night" onclick="nightNdayHandler(this)">
+
+<p style="margin-bottom:20px">
+        * onclick이라는 이벤트 내의 'this'는 해당 이벤트가 소속된 태그를 가르키는 것. <br>
+        독립된 함수를 만들었을 때 'this'는 더이상 input태그가 아닌, '전역객체'를 가르킨다.(웹브라우저에서는 윈도우)
+</p>
+
+
+    </ol>
+
+
+
+  </body>
+</html>

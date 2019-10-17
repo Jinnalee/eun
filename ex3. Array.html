@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 20강. Array </title>
+  </head>
+  <body>
+    <h1> Array 배열 </h1>
+    <h2> Syntax 문법 </h2>
+    * 문자는 ""이지만, 배열은 [원소와 원소(element) 사이는 ,] <br>
+    var 동료 =["가나다"] : '동료'라는 변수에 "가나다" 배열이라는 새로운 datatype이 담긴 것. <br>
+    즉, "가나다"배열이라는 datatype에 '동료'라는 이름을 붙인것. <br>
+    ex. var 동료 =  ["Jina","Havana", "Won","Yul","Yohan"] <br>
+
+    <script>
+      var 동료 =  ["Jina","Havana", "Won","Yul","Yohan"]
+    </script>
+
+    <h2> Get 배열 꺼내기 </h2>
+      document.write(동료[0]) : 첫번째 자리값은 0번째(index0번)
+      <p>
+        -> <script>
+          document.write(동료[0]);
+        </script>
+        </p>
+
+      document.write(동료[1]) : index 1
+      <p>
+        -> <script>
+          document.write(동료[1]);
+        </script>
+        </p>
+
+      <h2> Array Add : 배열 내 Data 추가 </h2>
+       동료.<strong style="color: blue">push</strong>("durian")
+      <script>
+        동료.push("durian")
+        동료.push("Ummpa")
+
+      </script>
+
+      <h2> Count 배열 내 값이 몇 개인가 </h2>
+      : document.write(동료.<strong style="color: blue">length</strong>)
+      <script>
+        document.write(동료.length);
+
+      </script>
+
+
+  </body>
+</html>

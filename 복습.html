@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 복습 </title>
+  </head>
+
+  <body>
+    <h2> 배열과 반복문 복습 </h2>
+    <ul>
+      <script>
+      var fruit = ["apple", "banana", "orange"]
+      fruit.push("mango","pomelo")
+
+      var i = 0
+      while(i < fruit.length){
+        document.write('<a href ="https://en.wikipedia.org/wiki/'+fruit[i]+'" target="_blank"><li>'+fruit[i]+'</li></a>');
+        i = i + 1
+      }
+      document.write(fruit.length)
+      document.write(fruit[fruit.length-1])
+
+
+    </script>
+    </ul>
+
+    <h2>Loop Statement - 바탕 밝기 </h2>
+    <<input type="button" value="day" onclick = "
+    var  x = document.querySelector('body')
+
+    if(this.value === 'day')
+    {document.querySelector('body').style.backgroundColor = 'pink';
+    document.querySelector('body').style.color = 'navy';
+    this.value = 'nightt'}
+    else{
+    x.style.backgroundColor = 'powderblue';
+    x.style.color = 'orange';
+    this.value = 'day'
+    }
+    ">>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

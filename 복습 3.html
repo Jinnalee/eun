@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 객체에 함수 넣기 </title>
+  </head>
+  <body>
+
+    < <a href ="ex 7. Object.html" target="_blank"> Object</a>에 함수 넣기 >
+
+    <input type="button" value="night" onclick = nightNdayHandler(this)>
+    <script>
+    var SetC = { //SetcC라는 변수에 객체를 담고, 해당 객체에 LinkSetC 등의 Property(Method) 입력
+        Link : function (color){
+          var i = 0;
+          var a = document.querySelectorAll('a');
+          while(i<a.length){
+            a[i].style.color = color;
+            i = i + 1;}
+          },
+          Body : function (color){
+            document.querySelector('body').style.color = color
+          },
+
+         Bodybg : function (color){
+           document.querySelector('body').style.backgroundColor = color
+         }
+       }
+
+       function nightNdayHandler(self){
+           if(self.value === 'night'){
+             SetC.Body('navy');
+             SetC.Bodybg('pink');
+             SetC.Link('yellow');
+             self.value = 'day'
+           }
+           else{
+             SetC.Body('darkgreen');
+             SetC.Bodybg('lightgrey');
+             SetC.Link('orange');
+             self.value = 'night'
+           }
+         }
+
+
+
+ </script>
+  <br>  var SetC = { //SetcC라는 변수에 객체를 담고, 해당 객체에 LinkSetC 등의 Property(Method) 입력
+  <br>      Link : function (color){
+  <br>        var i = 0;
+  <br>        var a = document.querySelectorAll('a');
+  <br>        while(i< a.length){
+  <br>          a[i].style.color = color;
+  <br>          i = i + 1;}
+  <br>        },
+  <br>        Body : function (color){
+  <br>          document.querySelector('body').style.color = color
+  <br>        },
+  <br>
+  <br>       Bodybg : function (color){
+  <br>         document.querySelector('body').style.backgroundColor = color
+  <br>       }
+  <br>     }
+  <br>
+  <br>     function nightNdayHandler(self){
+  <br>         if(self.value === 'night'){
+  <br>           SetC.Body('navy');
+  <br>           SetC.Bodybg('pink');
+  <br>           SetC.Link('yellow');
+  <br>           self.value = 'day'
+  <br>         }
+  <br>         else{
+  <br>           SetC.Body('darkgreen');
+  <br>           SetC.Bodybg('lightgrey');
+  <br>           SetC.Link('orange');
+  <br>           self.value = 'night'
+  <br>         }
+  <br>       }
+  <br>    * ctrl-alt-방향키 : 처음 커서 위치한 자리에 다중입력 커서 생성
+  <br> Handler 함수도 객체에 넣음.
+  <input type="button" value="night" onclick = ColourSet.Handler(this)>
+
+  <script>
+  var ColourSet = {
+       Body : function(color){
+          document.querySelector('body').style.color = color
+        },
+
+       Bodybg : function(color){
+         document.querySelector('body').style.backgroundColor = color
+       }
+     };
+
+   ColourSet.Link = function (color){
+     var i = 0;
+     var a = document.querySelectorAll('a');
+     while(i<a.length){
+       a[i].style.color = color;
+       i = i + 1;}
+     };
+
+    ColourSet.Handler = function (self){
+         if(self.value === 'night'){
+           ColourSet.Body('navy');
+           ColourSet.Bodybg('pink');
+           ColourSet.Link('yellow');
+           self.value = 'day'
+         }
+         else{
+           ColourSet.Body('darkgreen');
+           ColourSet.Bodybg('lightgrey');
+           ColourSet.Link('orange');
+           self.value = 'night'
+         }
+       }
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> 연습장 </title>
+  </head>
+  <body>
+    <input type="button" value="night" onclick = SetC.nightNdayHandler(this)>
+    가나다라마바사아자차가<a href="복습 3.html" target="_blank">타</a>파하
+    <script>
+    var SetC = {
+         Body : function(color){
+            document.querySelector('body').style.color = color
+          },
+
+         Bodybg : function(color){
+           document.querySelector('body').style.backgroundColor = color
+         }
+       };
+
+     SetC.Link = function (color){
+       var i = 0;
+       var a = document.querySelectorAll('a');
+       while(i<a.length){
+         a[i].style.color = color;
+         i = i + 1;}
+       };
+
+      SetC.nightNdayHandler = function (self){
+           if(self.value === 'night'){
+             SetC.Body('navy');
+             SetC.Bodybg('pink');
+             SetC.Link('yellow');
+             self.value = 'day'
+           }
+           else{
+             SetC.Body('darkgreen');
+             SetC.Bodybg('lightgrey');
+             SetC.Link('orange');
+             self.value = 'night'
+           }
+         }
+
+  </script>
+
+
+  </body>
+</html>
